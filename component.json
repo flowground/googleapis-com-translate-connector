@@ -1,0 +1,135 @@
+{
+    "title": "Google Cloud Translation",
+    "description": "The Google Cloud Translation API lets websites and programs integrate with\n    Google Translate programmatically.",
+    "docsUrl": "https://code.google.com/apis/language/translate/v2/getting_started.html",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/translate/v2/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://translation.googleapis.com/language/translate",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "language_translations_list": {
+            "main": "./lib/actions/language_translations_list.js",
+            "title": "Translates input text, returning translated text.",
+            "description": "Translates input text, returning translated text.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/language_translations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "language_translations_translate": {
+            "main": "./lib/actions/language_translations_translate.js",
+            "title": "Translates input text, returning translated text.",
+            "description": "Translates input text, returning translated text.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/language_translations_translate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "language_detections_list": {
+            "main": "./lib/actions/language_detections_list.js",
+            "title": "Detects the language of text within a request.",
+            "description": "Detects the language of text within a request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/language_detections_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "language_detections_detect": {
+            "main": "./lib/actions/language_detections_detect.js",
+            "title": "Detects the language of text within a request.",
+            "description": "Detects the language of text within a request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/language_detections_detect.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "language_languages_list": {
+            "main": "./lib/actions/language_languages_list.js",
+            "title": "Returns a list of supported languages for translation.",
+            "description": "Returns a list of supported languages for translation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/language_languages_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

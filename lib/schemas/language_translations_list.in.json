@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "cid": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "format": {
+            "type": "string",
+            "enum": [
+                "html",
+                "text"
+            ]
+        },
+        "model": {
+            "type": "string"
+        },
+        "q": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "source": {
+            "type": "string"
+        },
+        "target": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "pp": {
+            "type": "boolean",
+            "default": true
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        }
+    }
+}
